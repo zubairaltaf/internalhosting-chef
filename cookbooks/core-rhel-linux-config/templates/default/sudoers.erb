@@ -1,0 +1,22 @@
+#KMART sudoers file
+##Version 1.2
+#
+##Update by <%= node['sudoers']['author']%> 10-Aug-2017 Inital version
+##Update by <%= node['sudoers']['author']%> <%= node['sudoers']['update']%> Added comments
+##Update by <%= node['sudoers']['author']%> <%= node['sudoers']['update2']%> Addedd a call to separate files for application specific permissions
+
+
+Defaults   !visiblepw
+Defaults    always_set_home
+Defaults    env_reset
+Defaults    timestamp_timeout=5
+Defaults    logfile=/var/log/sudo.log
+Defaults    env_keep =  "COLORS DISPLAY HOSTNAME HISTSIZE KDEDIR LS_COLORS"
+Defaults    env_keep += "MAIL PS1 PS2 QTDIR USERNAME LANG LC_ADDRESS LC_CTYPE"
+Defaults    env_keep += "LC_COLLATE LC_IDENTIFICATION LC_MEASUREMENT LC_MESSAGES"
+Defaults    env_keep += "LC_MONETARY LC_NAME LC_NUMERIC LC_PAPER LC_TELEPHONE"
+Defaults    env_keep += "LC_TIME LC_ALL LANGUAGE LINGUAS _XKB_CHARSET XAUTHORITY"
+
+root                    ALL=(ALL) ALL
+
+# call separate files for application specific permissions below this line

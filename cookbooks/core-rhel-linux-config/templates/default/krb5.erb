@@ -1,0 +1,37 @@
+# Configuration snippets may be placed in this directory as well
+includedir /etc/krb5.conf.d/
+includedir /var/lib/sss/pubconf/krb5.include.d/
+
+[logging]
+ default = FILE:/var/log/krb5libs.log
+ kdc = FILE:/var/log/krb5kdc.log
+ admin_server = FILE:/var/log/kadmind.log
+
+[libdefaults]
+ clockskew = 300
+ dns_lookup_realm = true
+ dns_lookup_kdc = true
+ ticket_lifetime = 30m
+ renew_lifetime = 45m
+ forwardable = true
+ rdns = false
+ default_realm = CORE.KMTLTD.NET.AU
+ default_ccache_name = KEYRING:persistent:%{uid}
+
+[realms]
+CORE.KMTLTD.NET.AU = {
+  default_domain = core.kmtltd.net.au
+  admin_server = core.kmtltd.net.au
+}
+
+CORE = {
+  kdc = core.kmtltd.net.au
+  default_domain = core.kmtltd.net.au
+  admin_server = core.kmtltd.net.au
+}
+
+[domain_realm]
+  .core.kmtltd.net.au = CORE.KMTLTD.NET.AU
+  core.kmtltd.net.au = CORE.KMTLTD.NET.AU
+  .core = CORE.KMTLTD.NET.AU
+  core = CORE.KMTLTD.NET.AU

@@ -1,0 +1,13 @@
+[global]
+workgroup = CORE
+        passdb backend = tdbsam
+        map to guest = Bad User
+        include = /etc/samba/dhcp.conf
+        usershare allow guests = No
+        idmap gid = 10000-20000
+        idmap uid = 10000-20000
+        kerberos method = secrets and keytab
+        realm = CORE.KMTLTD.NET.AU
+        security = ADS
+        template homedir = /home/%u
+        template shell = /bin/bash
