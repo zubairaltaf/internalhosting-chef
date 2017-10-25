@@ -2,6 +2,8 @@ default["apache"]["sites"]["Mulgrave"] = { "site_title" => "Zubair Website Comin
 default["apache"]["sites"]["TallyHo"]  =  { "site_title" => "Zubair2 Website is Coming Soon!", "port" => 80, "domain" => "kutrhe104b.core.kmtltd.net.au"} 
 default["apache"]["sites"]["Mulgrave"] = { "site_title" => "Zubair3 Website", "port" => 80, "domain" => "kutrhe104.core.kmtltd.net.au"}
 
+default["author"]["name"] = "Zubair"
+ 
 case node["platform"]
 when "centos"
 	default["apache"]["package"] = "httpd"
